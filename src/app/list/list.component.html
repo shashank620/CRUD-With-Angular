@@ -1,0 +1,24 @@
+<div class="container mt-3">
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm"
+        >Create List</span
+      >
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      aria-label="Small"
+      aria-describedby="inputGroup-sizing-sm"
+      [(ngModel)]="inp"
+    />
+  </div>
+  <button type="button" class="btn btn-success mx-3" (click)="add()">
+    Add
+  </button>
+</div>
+
+<ul *ngFor="let show of display">
+  <li>{{ show }}</li>
+  <span><button type="button" class="btn btn-danger" (click)="dlt()"  [(ngModel)]="dlte">Delete</button></span>
+</ul>

@@ -1,0 +1,71 @@
+<div class="container-fluid" [ngClass]="isDarkTheme? 'dark-theme': 'light-theme'">
+  <mat-card>
+    <h2 class="heading">To-Do-List</h2>
+    <mat-slide-toggle (toggleChange)="toggle()" class="toggle">Choose Theme</mat-slide-toggle>
+    <!-- <hr class="line"> -->
+    <div class="container mt-5 page" >
+      <mat-card-content>
+        <div *ngIf="main">
+    <form #myForm="ngForm" [ngClass]="isDarkTheme?'color': ''" > 
+    <div class="form-group">
+        <label for="exampleInputEmail1" style="font-weight: bold;">Full Name</label>
+        <input type="text" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter name" [(ngModel)]="userObj.name">
+      </div><br>
+    <div class="form-group">
+        <label for="exampleInputEmail1" style="font-weight: bold;">Mobile No.</label>
+        <input type="number" class="form-control" name="mobile" aria-describedby="emailHelp" placeholder="Enter mobile no." [(ngModel)]="userObj.mobile">
+      </div><br>
+    <div class="form-group">
+      <label for="exampleInputEmail1" style="font-weight: bold;">Email address</label>
+      <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="userObj.email">
+    </div><br>
+    <div class="form-group">
+      <label for="exampleInputPassword1" style="font-weight: bold;">Password</label>
+      <input type="password" [type]="showPass? 'text':'password'" class="form-control" name="password" placeholder="Password" [(ngModel)]="userObj.password">
+      <span><mat-icon (click)="show_hide()" *ngIf="!showPass" class="showHide">visibility_off</mat-icon></span>
+      <span><mat-icon (click)="show_hide()" *ngIf="showPass" class="showHide">visibility</mat-icon></span>
+    </div>
+    <button type="button" class="btn btn-primary mt-3" (click)="addUser(myForm.value)" *ngIf="!isEdit">Submit</button>
+    <button type="button" class="btn btn-info mt-3 mx-3" (click)="updateUser()" *ngIf="isEdit">Update</button>
+  </form>
+</div>
+  
+<br><br>
+
+<!-- table -->
+<div *ngIf="table">
+<table class="table container" [ngClass]="isDarkTheme?'color': ''">
+    <thead class="thead-dark table table-dark">
+      <tr>
+        <th scope="col">Full Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <!-- <th scope="col">Show</th>
+        <th scope="col"></th> -->
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of allUser ">
+        <td>{{user.name}}</td>
+        <td>{{user.mobile}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <!-- <td><mat-icon (click)="display()" *ngIf="!password">visibility_off</mat-icon></td>
+        <td><mat-icon (click)="display()" *ngIf="password">visibility</mat-icon></td> -->
+        <td><button class="btn btn-warning" (click)="editUser(user)">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+</mat-card-content>
+
+</div>
+</mat-card>
+</div>
+  
+

@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "name": "Shashank .",
+      "mobile": 6205690133,
+      "email": "shashank1742002@gmail.com",
+      "password": "123r",
+      "id": 4
+    },
+    {
+      "name": "SACHIN",
+      "mobile": 234567890,
+      "email": "punnumishra552@gmail.com",
+      "password": "2345678I",
+      "id": 6
+    },
+    {
+      "name": "Shashank .",
+      "mobile": 6205690133,
+      "email": "shashank1742002@gmail.com",
+      "password": "sdfghjk",
+      "id": 7
+    }
+  ]
+}
