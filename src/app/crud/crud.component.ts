@@ -20,7 +20,7 @@ export class CRUDComponent  {
     mobile:'',
     email:'',
     password:'',
-    id:''
+    id:'',
   }
   // const JSON = JSON.stringify(this.userObj);
   isEdit:boolean=false;
@@ -70,6 +70,9 @@ export class CRUDComponent  {
     this.commonService.deleteUser(user).subscribe(()=>{
       this.getLatestUser()
     })
+  }
+  getStarValue(value: string) {
+    return value.split('').map(char => '*').join('')
   }
   editUser(user:any){
     this.userObj=user;
